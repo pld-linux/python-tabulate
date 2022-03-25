@@ -7,7 +7,7 @@
 Summary:	Pretty-print tabular data
 Name:		python-%{module}
 Version:	0.8.9
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/tabulate/
