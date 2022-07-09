@@ -6,13 +6,13 @@
 %define		module		tabulate
 Summary:	Pretty-print tabular data
 Name:		python-%{module}
-Version:	0.8.9
-Release:	5
+Version:	0.8.10
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/tabulate/
 Source0:	https://files.pythonhosted.org/packages/source/t/tabulate/%{module}-%{version}.tar.gz
-# Source0-md5:	71e6f214512ceda2892be47767156754
+# Source0-md5:	70cc6906675fc840e2675ecd022641bc
 URL:		https://github.com/astanin/python-tabulate
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
