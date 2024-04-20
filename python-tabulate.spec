@@ -5,7 +5,9 @@
 
 %define		module		tabulate
 Summary:	Pretty-print tabular data
+Summary(pl.UTF-8):	Ładne wypisywanie danych tabelarycznych
 Name:		python-%{module}
+# keep 0.8.x here for python2 support
 Version:	0.8.10
 Release:	1
 License:	MIT
@@ -40,8 +42,23 @@ The main use cases of the library are:
   column alignment, configurable number formatting, alignment by a
   decimal point
 
+%description -l pl.UTF-8
+Ładne wypisywanie danych tabelarycznych w Pythonie.
+
+Główne przypadki użycia tej biblioteki to:
+- proste wypisywanie małych tabelek - tylko jedno wywołanie funkcji,
+  formatowanie sugerowane przez same dane
+- tworzenie danych tabelarycznych do lekkich znaczników tekstowych -
+  wiele formatów wyjściowych, odpowiednich do dalszej edycji lub
+  przekształceń
+- czytelna prezentacja mieszanych danych tekstowych i liczbowych -
+  inteligentne wyrównywanie kolumn, konfigurowalne formatowanie liczb,
+  wyrównywanie do kropki/przecinka dziesiętnego
+
 %package -n python3-%{module}
 Summary:	Pretty-print tabular data
+Summary(pl.UTF-8):	Ładne wypisywanie danych tabelarycznych
+Group:		Libraries/Python
 Requires:	python3-modules >= 1:3.5
 
 %description -n python3-%{module}
@@ -55,6 +72,19 @@ The main use cases of the library are:
 - readable presentation of mixed textual and numeric data: smart
   column alignment, configurable number formatting, alignment by a
   decimal point
+
+%description -n python3-%{module} -l pl.UTF-8
+Ładne wypisywanie danych tabelarycznych w Pythonie.
+
+Główne przypadki użycia tej biblioteki to:
+- proste wypisywanie małych tabelek - tylko jedno wywołanie funkcji,
+  formatowanie sugerowane przez same dane
+- tworzenie danych tabelarycznych do lekkich znaczników tekstowych -
+  wiele formatów wyjściowych, odpowiednich do dalszej edycji lub
+  przekształceń
+- czytelna prezentacja mieszanych danych tekstowych i liczbowych -
+  inteligentne wyrównywanie kolumn, konfigurowalne formatowanie liczb,
+  wyrównywanie do kropki/przecinka dziesiętnego
 
 %prep
 %setup -q -n %{module}-%{version}
@@ -73,6 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %if %{with python2}
 %py_install
+
 %py_postclean
 %endif
 
