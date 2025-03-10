@@ -9,7 +9,7 @@ Summary(pl.UTF-8):	Ładne wypisywanie danych tabelarycznych
 Name:		python-%{module}
 # keep 0.8.x here for python2 support
 Version:	0.8.10
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/tabulate/
