@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	python2	# CPython 2.x module
-%bcond_without	python3	# CPython 3.x module
+%bcond_with	python3	# CPython 3.x module (built from python3-tabulate.spec)
 
 %define		module		tabulate
 Summary:	Pretty-print tabular data
@@ -9,7 +9,7 @@ Summary(pl.UTF-8):	Ładne wypisywanie danych tabelarycznych
 Name:		python-%{module}
 # keep 0.8.x here for python2 support
 Version:	0.8.10
-Release:	3
+Release:	4
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/tabulate/
@@ -105,6 +105,8 @@ rm -rf $RPM_BUILD_ROOT
 %py_install
 
 %py_postclean
+
+%{__mv} $RPM_BUILD_ROOT%{_bindir}/tabulate{,-2}
 %endif
 
 %if %{with python3}
@@ -118,9 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG README.md
-%if %{without python3}
-%attr(755,root,root) %{_bindir}/tabulate
-%endif
+%attr(755,root,root) %{_bindir}/tabulate-2
 %{py_sitescriptdir}/%{module}.py[co]
 %{py_sitescriptdir}/%{module}-%{version}-py*.egg-info
 %endif
